@@ -48,3 +48,9 @@ if (options.ls) {
   const filepath = typeof options.ls === "string" ? options.ls : __dirname;
   listDirContents(filepath);
 }
+if (options.mkdir) {
+  createDir(path.resolve(__dirname, options.mkdir));
+}
+if (options.touch) {
+  createFile(path.resolve(__dirname, options.touch));
+}
