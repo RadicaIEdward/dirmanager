@@ -31,3 +31,20 @@ async function listDirContents(filepath: string) {
     console.error("Error occurred while reading the directory!", error);
   }
 }
+
+function createDir(filepath: string) {
+  if (!fs.existsSync(filepath)) {
+    fs.mkdirSync(filepath);
+    console.log("The directory has been created successfully");
+  }
+}
+
+function createFile(filepath: string) {
+  fs.openSync(filepath, "w");
+  console.log("An empty file has been created");
+}
+
+if (options.ls) {
+  const filepath = typeof options.ls === "string" ? options.ls : __dirname;
+  listDirContents(filepath);
+}
