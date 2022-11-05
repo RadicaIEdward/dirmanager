@@ -30,7 +30,16 @@ function listDirContents(filepath) {
             const detailedFilesPromises = files.map((file) => __awaiter(this, void 0, void 0, function* () {
                 let fileDetails = yield fs.promises.lstat(path.resolve(filepath, file));
                 const { size, birthtime } = fileDetails;
-                return { filename: file, "size(KB)": size, created_at: birthtime };
+                let fileType = "File";
+                if (path.extname(file) === "") {
+                    fileType = "Directory";
+                }
+                return {
+                    filename: file,
+                    "size(KB)": size,
+                    created_at: birthtime,
+                    type: fileType,
+                };
             }));
             const detailedFiles = yield Promise.all(detailedFilesPromises);
             console.table(detailedFiles);
