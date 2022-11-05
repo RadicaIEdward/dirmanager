@@ -14,7 +14,9 @@ const figlet = require("figlet");
 const fs = require("fs");
 const path = require("path");
 const program = new Command();
-console.log(figlet.textSync("Dir Manager"));
+console.log(figlet.textSync("Dir Manager", {
+    font: "Star Wars",
+}));
 program
     .version("1.0.0")
     .description("An example CLI for managing a directory")
