@@ -2,6 +2,8 @@
 
 DirManager is a command line application that allows you to to manage and view information about directories on your computer.
 
+![Help Command](README-images/intro.png)
+
 ## Help
 
 To get to the help menu, you can type **dirmanager -h** or simply type the **dirmanager** command.
